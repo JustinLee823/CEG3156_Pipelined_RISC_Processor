@@ -1,5 +1,5 @@
 Flow report for PipelinedProcessor
-Wed Mar 25 14:01:47 2026
+Mon Mar 30 11:46:43 2026
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Wed Mar 25 14:01:05 2026           ;
+; Flow Status                        ; Successful - Mon Mar 30 11:46:36 2026           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; PipelinedProcessor                              ;
-; Top-level Entity Name              ; eightBitCompare                                 ;
+; Top-level Entity Name              ; mux4to1_8bit                                    ;
 ; Family                             ; Cyclone IV E                                    ;
 ; Device                             ; EP4CE115F29C7                                   ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 5 / 114,480 ( < 1 % )                           ;
-;     Total combinational functions  ; 5 / 114,480 ( < 1 % )                           ;
+; Total logic elements               ; 16 / 114,480 ( < 1 % )                          ;
+;     Total combinational functions  ; 16 / 114,480 ( < 1 % )                          ;
 ;     Dedicated logic registers      ; 0 / 114,480 ( 0 % )                             ;
 ; Total registers                    ; 0                                               ;
-; Total pins                         ; 17 / 529 ( 3 % )                                ;
+; Total pins                         ; 42 / 529 ( 8 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                           ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                                 ;
@@ -64,29 +64,29 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/25/2026 13:59:03 ;
+; Start date & time ; 03/30/2026 11:46:04 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; PipelinedProcessor  ;
 +-------------------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                ;
-+-------------------------------------+---------------------------------------+--------------------+-----------------+------------+
-; Assignment Name                     ; Value                                 ; Default Value      ; Entity Name     ; Section Id ;
-+-------------------------------------+---------------------------------------+--------------------+-----------------+------------+
-; COMPILER_SIGNATURE_ID               ; 345051237366.177446154319296          ; --                 ; --              ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --                 ; --              ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --                 ; --              ; --         ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                  ; --                 ; --              ; --         ;
-; PARTITION_COLOR                     ; 16764057                              ; --                 ; eightBitCompare ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --                 ; eightBitCompare ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --                 ; eightBitCompare ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --                 ; --              ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --                 ; --              ; --         ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                          ; --                 ; --              ; --         ;
-; TOP_LEVEL_ENTITY                    ; eightBitCompare                       ; PipelinedProcessor ; --              ; --         ;
-+-------------------------------------+---------------------------------------+--------------------+-----------------+------------+
++------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                             ;
++-------------------------------------+---------------------------------------+--------------------+--------------+------------+
+; Assignment Name                     ; Value                                 ; Default Value      ; Entity Name  ; Section Id ;
++-------------------------------------+---------------------------------------+--------------------+--------------+------------+
+; COMPILER_SIGNATURE_ID               ; 345051237366.177488556318640          ; --                 ; --           ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --                 ; --           ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --                 ; --           ; --         ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                  ; --                 ; --           ; --         ;
+; PARTITION_COLOR                     ; 16764057                              ; --                 ; mux4to1_8bit ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --                 ; mux4to1_8bit ; Top        ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --                 ; mux4to1_8bit ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --                 ; --           ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --                 ; --           ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                          ; --                 ; --           ; --         ;
+; TOP_LEVEL_ENTITY                    ; mux4to1_8bit                          ; PipelinedProcessor ; --           ; --         ;
++-------------------------------------+---------------------------------------+--------------------+--------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -94,11 +94,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 4643 MB             ; 00:00:03                           ;
-; Fitter                    ; 00:00:31     ; 1.0                     ; 4994 MB             ; 00:00:17                           ;
-; Assembler                 ; 00:00:23     ; 1.0                     ; 4571 MB             ; 00:00:05                           ;
-; TimeQuest Timing Analyzer ; 00:00:35     ; 1.0                     ; 4652 MB             ; 00:00:04                           ;
-; Total                     ; 00:01:47     ; --                      ; --                  ; 00:00:29                           ;
+; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 4642 MB             ; 00:00:03                           ;
+; Fitter                    ; 00:00:17     ; 1.0                     ; 5001 MB             ; 00:00:16                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 4583 MB             ; 00:00:05                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 4659 MB             ; 00:00:04                           ;
+; Total                     ; 00:00:31     ; --                      ; --                  ; 00:00:28                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

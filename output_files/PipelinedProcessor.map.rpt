@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PipelinedProcessor
-Wed Mar 25 13:59:27 2026
+Mon Mar 30 11:46:07 2026
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -41,16 +41,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 25 13:59:26 2026           ;
+; Analysis & Synthesis Status        ; Successful - Mon Mar 30 11:46:07 2026           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; PipelinedProcessor                              ;
-; Top-level Entity Name              ; eightBitCompare                                 ;
+; Top-level Entity Name              ; mux4to1_8bit                                    ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 5                                               ;
-;     Total combinational functions  ; 5                                               ;
+; Total logic elements               ; 16                                              ;
+;     Total combinational functions  ; 16                                              ;
 ;     Dedicated logic registers      ; 0                                               ;
 ; Total registers                    ; 0                                               ;
-; Total pins                         ; 17                                              ;
+; Total pins                         ; 42                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; eightBitCompare    ; PipelinedProcessor ;
+; Top-level entity name                                                      ; mux4to1_8bit       ; PipelinedProcessor ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -156,52 +156,61 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                     ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path              ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
-; eightBitCompare.vhd              ; yes             ; User VHDL File  ; H:/Pipeline_Processor/eightBitCompare.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                            ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
+; VHD Files/mux4to1_8bit.vhd       ; yes             ; User VHDL File  ; H:/Pipeline_Processor/VHD Files/mux4to1_8bit.vhd ;         ;
+; VHD Files/mux4to1_1bit.vhd       ; yes             ; User VHDL File  ; H:/Pipeline_Processor/VHD Files/mux4to1_1bit.vhd ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------+---------+
 
 
-+------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary          ;
-+---------------------------------------------+--------+
-; Resource                                    ; Usage  ;
-+---------------------------------------------+--------+
-; Estimated Total logic elements              ; 5      ;
-;                                             ;        ;
-; Total combinational functions               ; 5      ;
-; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 5      ;
-;     -- 3 input functions                    ; 0      ;
-;     -- <=2 input functions                  ; 0      ;
-;                                             ;        ;
-; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 5      ;
-;     -- arithmetic mode                      ; 0      ;
-;                                             ;        ;
-; Total registers                             ; 0      ;
-;     -- Dedicated logic registers            ; 0      ;
-;     -- I/O registers                        ; 0      ;
-;                                             ;        ;
-; I/O pins                                    ; 17     ;
-; Embedded Multiplier 9-bit elements          ; 0      ;
-; Maximum fan-out node                        ; zero~0 ;
-; Maximum fan-out                             ; 1      ;
-; Total fan-out                               ; 38     ;
-; Average fan-out                             ; 0.97   ;
-+---------------------------------------------+--------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 16             ;
+;                                             ;                ;
+; Total combinational functions               ; 16             ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 16             ;
+;     -- 3 input functions                    ; 0              ;
+;     -- <=2 input functions                  ; 0              ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 16             ;
+;     -- arithmetic mode                      ; 0              ;
+;                                             ;                ;
+; Total registers                             ; 0              ;
+;     -- Dedicated logic registers            ; 0              ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 42             ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+; Maximum fan-out node                        ; i_sel[0]~input ;
+; Maximum fan-out                             ; 12             ;
+; Total fan-out                               ; 114            ;
+; Average fan-out                             ; 1.14           ;
++---------------------------------------------+----------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |eightBitCompare           ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |eightBitCompare    ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
+; |mux4to1_8bit              ; 16 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |mux4to1_8bit                   ; work         ;
+;    |mux4to1_1bit:mux1|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mux4to1_8bit|mux4to1_1bit:mux1 ; work         ;
+;    |mux4to1_1bit:mux2|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mux4to1_8bit|mux4to1_1bit:mux2 ; work         ;
+;    |mux4to1_1bit:mux3|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mux4to1_8bit|mux4to1_1bit:mux3 ; work         ;
+;    |mux4to1_1bit:mux4|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mux4to1_8bit|mux4to1_1bit:mux4 ; work         ;
+;    |mux4to1_1bit:mux5|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mux4to1_8bit|mux4to1_1bit:mux5 ; work         ;
+;    |mux4to1_1bit:mux6|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mux4to1_8bit|mux4to1_1bit:mux6 ; work         ;
+;    |mux4to1_1bit:mux7|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mux4to1_8bit|mux4to1_1bit:mux7 ; work         ;
+;    |mux4to1_1bit:mux8|     ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mux4to1_8bit|mux4to1_1bit:mux8 ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -225,7 +234,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -235,73 +244,95 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Mar 25 13:59:00 2026
+    Info: Processing started: Mon Mar 30 11:46:02 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PipelinedProcessor -c PipelinedProcessor
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 2 design units, including 1 entities, in source file mux8to1_8bit.vhd
-    Info (12022): Found design unit 1: mux8to1_8bit-rtl
-    Info (12023): Found entity 1: mux8to1_8bit
-Info (12021): Found 2 design units, including 1 entities, in source file mux8to1_1bit.vhd
-    Info (12022): Found design unit 1: mux8to1_1bit-rtl
-    Info (12023): Found entity 1: mux8to1_1bit
-Info (12021): Found 2 design units, including 1 entities, in source file mux2to1_8bit.vhd
-    Info (12022): Found design unit 1: mux2to1_8bit-structural
-    Info (12023): Found entity 1: mux2to1_8bit
-Info (12021): Found 2 design units, including 1 entities, in source file mux2to1_5bit.vhd
-    Info (12022): Found design unit 1: mux2to1_5bit-structural
-    Info (12023): Found entity 1: mux2to1_5bit
-Info (12021): Found 2 design units, including 1 entities, in source file mux2to1_1bit.vhd
-    Info (12022): Found design unit 1: mux2to1_1bit-rtl
-    Info (12023): Found entity 1: mux2to1_1bit
-Info (12021): Found 2 design units, including 1 entities, in source file instructionmem.vhd
-    Info (12022): Found design unit 1: instructionmem-SYN
-    Info (12023): Found entity 1: InstructionMem
-Info (12021): Found 2 design units, including 1 entities, in source file fileregister.vhd
-    Info (12022): Found design unit 1: FileRegister-rtl
-    Info (12023): Found entity 1: FileRegister
-Info (12021): Found 2 design units, including 1 entities, in source file enardff_2.vhd
-    Info (12022): Found design unit 1: enARdFF_2-rtl
-    Info (12023): Found entity 1: enARdFF_2
-Info (12021): Found 2 design units, including 1 entities, in source file eightbitregister.vhd
-    Info (12022): Found design unit 1: eightBitRegister-rtl
-    Info (12023): Found entity 1: eightBitRegister
-Info (12021): Found 2 design units, including 1 entities, in source file eightbitadder.vhd
-    Info (12022): Found design unit 1: eightBitAdder-rtl
-    Info (12023): Found entity 1: eightBitAdder
-Info (12021): Found 2 design units, including 1 entities, in source file decoder8.vhd
-    Info (12022): Found design unit 1: decoder8-rtl
-    Info (12023): Found entity 1: decoder8
-Info (12021): Found 0 design units, including 0 entities, in source file datapath.vhd
-Info (12021): Found 2 design units, including 1 entities, in source file datamem.vhd
-    Info (12022): Found design unit 1: datamem-SYN
-    Info (12023): Found entity 1: DataMem
-Info (12021): Found 2 design units, including 1 entities, in source file controlunit.vhd
-    Info (12022): Found design unit 1: ControlUnit-rtl
-    Info (12023): Found entity 1: ControlUnit
-Info (12021): Found 2 design units, including 1 entities, in source file alucontrol.vhd
-    Info (12022): Found design unit 1: ALUControl-rtl
-    Info (12023): Found entity 1: ALUControl
-Info (12021): Found 2 design units, including 1 entities, in source file alu8bit.vhd
-    Info (12022): Found design unit 1: ALU8bit-rtl
-    Info (12023): Found entity 1: ALU8bit
-Info (12021): Found 2 design units, including 1 entities, in source file shiftleft2_8bit.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/shiftleft2_8bit.vhd
     Info (12022): Found design unit 1: shiftLeft2_8bit-rtl
     Info (12023): Found entity 1: shiftLeft2_8bit
-Info (12021): Found 2 design units, including 1 entities, in source file eightbitcompare.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/onebitcomparator.vhd
+    Info (12022): Found design unit 1: oneBitComparator-rtl
+    Info (12023): Found entity 1: oneBitComparator
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/mux8to1_8bit.vhd
+    Info (12022): Found design unit 1: mux8to1_8bit-rtl
+    Info (12023): Found entity 1: mux8to1_8bit
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/mux8to1_1bit.vhd
+    Info (12022): Found design unit 1: mux8to1_1bit-rtl
+    Info (12023): Found entity 1: mux8to1_1bit
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/mux2to1_8bit.vhd
+    Info (12022): Found design unit 1: mux2to1_8bit-structural
+    Info (12023): Found entity 1: mux2to1_8bit
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/mux2to1_5bit.vhd
+    Info (12022): Found design unit 1: mux2to1_5bit-structural
+    Info (12023): Found entity 1: mux2to1_5bit
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/mux2to1_1bit.vhd
+    Info (12022): Found design unit 1: mux2to1_1bit-rtl
+    Info (12023): Found entity 1: mux2to1_1bit
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/instructionmem.vhd
+    Info (12022): Found design unit 1: instructionmem-SYN
+    Info (12023): Found entity 1: InstructionMem
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/fileregister.vhd
+    Info (12022): Found design unit 1: FileRegister-rtl
+    Info (12023): Found entity 1: FileRegister
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/enardff_2.vhd
+    Info (12022): Found design unit 1: enARdFF_2-rtl
+    Info (12023): Found entity 1: enARdFF_2
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/eightbitregister.vhd
+    Info (12022): Found design unit 1: eightBitRegister-rtl
+    Info (12023): Found entity 1: eightBitRegister
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/eightbitcompare.vhd
     Info (12022): Found design unit 1: eightBitCompare-rtl
     Info (12023): Found entity 1: eightBitCompare
-Info (12127): Elaborating entity "eightBitCompare" for the top level hierarchy
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/eightbitadder.vhd
+    Info (12022): Found design unit 1: eightBitAdder-rtl
+    Info (12023): Found entity 1: eightBitAdder
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/decoder8.vhd
+    Info (12022): Found design unit 1: decoder8-rtl
+    Info (12023): Found entity 1: decoder8
+Info (12021): Found 0 design units, including 0 entities, in source file vhd files/datapath.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/datamem.vhd
+    Info (12022): Found design unit 1: datamem-SYN
+    Info (12023): Found entity 1: DataMem
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/controlunit.vhd
+    Info (12022): Found design unit 1: ControlUnit-rtl
+    Info (12023): Found entity 1: ControlUnit
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/alucontrol.vhd
+    Info (12022): Found design unit 1: ALUControl-rtl
+    Info (12023): Found entity 1: ALUControl
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/alu8bit.vhd
+    Info (12022): Found design unit 1: ALU8bit-rtl
+    Info (12023): Found entity 1: ALU8bit
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/idex_pipe.vhd
+    Info (12022): Found design unit 1: IDEX_Pipe-rtl
+    Info (12023): Found entity 1: IDEX_Pipe
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/exmem_pipe.vhd
+    Info (12022): Found design unit 1: EXMEM_Pipe-rtl
+    Info (12023): Found entity 1: EXMEM_Pipe
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/memwb_pipe.vhd
+    Info (12022): Found design unit 1: MEMWB_Pipe-rtl
+    Info (12023): Found entity 1: MEMWB_Pipe
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/ifid_pipe.vhd
+    Info (12022): Found design unit 1: IFID_Pipe-rtl
+    Info (12023): Found entity 1: IFID_Pipe
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/mux4to1_8bit.vhd
+    Info (12022): Found design unit 1: mux4to1_8bit-rtl
+    Info (12023): Found entity 1: mux4to1_8bit
+Info (12021): Found 2 design units, including 1 entities, in source file vhd files/mux4to1_1bit.vhd
+    Info (12022): Found design unit 1: mux4to1_1bit-rtl
+    Info (12023): Found entity 1: mux4to1_1bit
+Info (12127): Elaborating entity "mux4to1_8bit" for the top level hierarchy
+Info (12128): Elaborating entity "mux4to1_1bit" for hierarchy "mux4to1_1bit:mux1"
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 22 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 16 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 5 logic cells
+Info (21057): Implemented 58 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 34 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 16 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4654 megabytes
-    Info: Processing ended: Wed Mar 25 13:59:28 2026
-    Info: Elapsed time: 00:00:28
+    Info: Peak virtual memory: 4650 megabytes
+    Info: Processing ended: Mon Mar 30 11:46:07 2026
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:03
 
 
