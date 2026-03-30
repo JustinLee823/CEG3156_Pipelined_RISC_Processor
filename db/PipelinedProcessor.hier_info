@@ -1,0 +1,20 @@
+|eightBitCompare
+i_value[0] => int_compare[0].IN0
+i_value[1] => int_compare[1].IN0
+i_value[2] => int_compare[2].IN0
+i_value[3] => int_compare[3].IN0
+i_value[4] => int_compare[4].IN0
+i_value[5] => int_compare[5].IN0
+i_value[6] => int_compare[6].IN0
+i_value[7] => int_compare[7].IN0
+i_cmp[0] => int_compare[0].IN1
+i_cmp[1] => int_compare[1].IN1
+i_cmp[2] => int_compare[2].IN1
+i_cmp[3] => int_compare[3].IN1
+i_cmp[4] => int_compare[4].IN1
+i_cmp[5] => int_compare[5].IN1
+i_cmp[6] => int_compare[6].IN1
+i_cmp[7] => int_compare[7].IN1
+zero <= zero.DB_MAX_OUTPUT_PORT_TYPE
+
+
