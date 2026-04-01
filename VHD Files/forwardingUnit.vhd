@@ -1,0 +1,71 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity forwardingUnit is
+    port(
+        EXMEM_RegWrite      : in std_logic;
+        EXMEM_RegisterRd    : in std_logic_vector(4 downto 0);
+        IDEX_RegisterRs     : in std_logic_vector(4 downto 0);
+        IDEX_RegisterRt     : in std_logic_vector(4 downto 0);
+
+        MEMWB_RegWrite      : in std_logic;
+        MEMWB_RegisterRd    : in std_logic_vector(4 downto 0);
+
+        ForwardA    : out std_logic_vector(1 downto 0);
+        ForwardB    : out std_logic_vector(1 downto 0);
+    );
+end forwardingUnit;
+
+architecture structural of forwardingUnit is
+    signal EXMEM_RegisterRd_equals_rs   : std_logic;
+    signal EXMEM_RegisterRd_equals_rt   : std_logic;
+    signal MEMWB_RegisterRd_equals_rs   : std_logic;
+    signal MEMWB_RegisterRd_equals_rt   : std_logic;
+
+    signal zero_register                : std_logic_vector(4 downto 0);
+    signal EXMEM_RegisterRd_equal_zeroReg : std_logic;
+    signal MEMWB_RegisterRd_equal_zeroReg : std_logic;
+
+    signal type1, type2, type3, type4   : std_logic;
+
+    begin
+    zero_register = '00000';
+
+    EXMEM_RegisterRd_equals_rs <= (EXMEM_RegisterRd(4) XNOR IDEX_RegisterRs(4)) AND (EXMEM_RegisterRd(3) XNOR IDEX_RegisterRs(3)) AND
+                                  (EXMEM_RegisterRd(2) XNOR IDEX_RegisterRs(2)) AND (EXMEM_RegisterRd(1) XNOR IDEX_RegisterRs(1)) AND 
+                                  (EXMEM_RegisterRd(0) XNOR IDEX_RegisterRs(0));
+    
+    EXMEM_RegisterRd_equals_rt <= (EXMEM_RegisterRd(4) XNOR IDEX_RegisterRt(4)) AND (EXMEM_RegisterRd(3) XNOR IDEX_RegisterRt(3)) AND 
+                                  (EXMEM_RegisterRd(2) XNOR IDEX_RegisterRt(2)) AND (EXMEM_RegisterRd(1) XNOR IDEX_RegisterRt(1)) AND 
+                                  (EXMEM_RegisterRd(0) XNOR IDEX_RegisterRt(0));
+    
+    MEMWB_RegisterRd_equals_rs <= (MEMWB_RegisterRd(4) XNOR IDEX_RegisterRs(4)) AND (MEMWB_RegisterRd(3) XNOR IDEX_RegisterRs(3)) AND
+                                  (MEMWB_RegisterRd(2) XNOR IDEX_RegisterRs(2)) AND (MEMWB_RegisterRd(1) XNOR IDEX_RegisterRs(1)) AND
+                                  (MEMWB_RegisterRd(0) XNOR IDEX_RegisterRs(0));
+    
+    MEMWB_RegisterRd_equals_rt <= (MEMWB_RegisterRd(4) XNOR IDEX_RegisterRt(4)) AND (MEMWB_RegisterRd(3) XNOR IDEX_RegisterRt(3)) AND
+                                  (MEMWB_RegisterRd(2) XNOR IDEX_RegisterRt(2)) AND (MEMWB_RegisterRd(1) XNOR IDEX_RegisterRt(1)) AND
+                                  (MEMWB_RegisterRd(0) XNOR IDEX_RegisterRt(0));                  
+    
+    EXMEM_RegisterRd_equal_zeroReg <= (EXMEM_RegisterRd(4) XNOR zero_register(4)) AND (EXMEM_RegisterRd(3) XNOR zero_register(3)) AND
+                                        (EXMEM_RegisterRd(2) XNOR zero_register(2)) AND (EXMEM_RegisterRd(1) XNOR zero_register(1)) AND 
+                                        (EXMEM_RegisterRd(0) XNOR zero_register(0));
+
+    MEMWB_RegisterRd_equal_zeroReg <= (MEMWB_RegisterRd(4) XNOR zero_register(4)) AND (MEMWB_RegisterRd(3) XNOR zero_register(3)) AND
+                                        (MEMWB_RegisterRd(2) XNOR zero_register(2)) AND (MEMWB_RegisterRd(1) XNOR zero_register(1)) AND
+                                        (MEMWB_RegisterRd(0) XNOR zero_register(0));
+
+    type1 <= EXMEM_RegWrite AND NOT(EXMEM_RegisterRd_equal_zeroReg) AND EXMEM_RegisterRd_equals_rs;
+    type2 <= EXMEM_RegWrite AND NOT(EXMEM_RegisterRd_equal_zeroReg) AND EXMEM_RegisterRd_equals_rt;
+    type3 <= MEMWB_RegWrite AND NOT(MEMWB_RegisterRd_equal_zeroReg) AND MEMWB_RegisterRd_equals_rs;
+    type4 <= MEMWB_RegWrite AND NOT(MEMWB_RegisterRd_equal_zeroReg) AND MEMWB_RegisterRd_equals_rt;
+
+    -- FowardA MUX
+    ForwardA(1) <= type1;
+    ForwardA(0) <= NOT(type1) AND type3;
+
+    -- ForwardB MUX
+    ForwardB(1) <= type2;
+    ForwardB(0) <= NOT(type2) AND type4;
+
+end structural;
