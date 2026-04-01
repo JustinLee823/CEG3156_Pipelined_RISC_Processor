@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity eightBitCompare is 
+	port(i_value, i_cmp : in std_logic_vector(7 downto 0);
+		zero : out std_logic;);
+end entity;
+
+architecture rtl of eightBitCompare is
+	signal int_compare std_logic_vector(7 downto 0);
+begin
+	int_compare(0) <= i_value(0) and i_cmp(0);
+	int_compare(1) <= i_value(1) and i_cmp(1);
+	int_compare(2) <= i_value(2) and i_cmp(2);
+	int_compare(3) <= i_value(3) and i_cmp(3);
+	int_compare(4) <= i_value(4) and i_cmp(4);
+	int_compare(5) <= i_value(5) and i_cmp(5);
+	int_compare(6) <= i_value(6) and i_cmp(6);
+	int_compare(7) <= i_value(7) and i_cmp(7);
+	
+	zero <= not(int_compare(0) and int_compare(1) and int_compare(2) and int_compare(3) and int_compare(4) and int_compare(5) and int_compare(6) and int_compare(7));
+end rtl;

@@ -1,5 +1,5 @@
 Simulator report for PipelinedProcessor_qsim
-Mon Mar 30 12:06:57 2026
+Tue Mar 31 16:45:03 2026
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -45,43 +45,43 @@ applicable agreement for further details.
 +-----------------------------+--------------+
 ; Simulation Start Time       ; 0 ps         ;
 ; Simulation End Time         ; 1.0 us       ;
-; Simulation Netlist Size     ; 130 nodes    ;
-; Simulation Coverage         ;      14.62 % ;
-; Total Number of Transitions ; 52           ;
+; Simulation Netlist Size     ; 101 nodes    ;
+; Simulation Coverage         ;      88.12 % ;
+; Total Number of Transitions ; 225          ;
 ; Simulation Breakpoints      ; 0            ;
 ; Family                      ; Cyclone III  ;
 +-----------------------------+--------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Simulator Settings                                                                                                                                            ;
-+--------------------------------------------------------------------------------------------+--------------------------------------------------+---------------+
-; Option                                                                                     ; Setting                                          ; Default Value ;
-+--------------------------------------------------------------------------------------------+--------------------------------------------------+---------------+
-; Simulation mode                                                                            ; Functional                                       ; Timing        ;
-; Start time                                                                                 ; 0 ns                                             ; 0 ns          ;
-; Simulation results format                                                                  ; VWF                                              ;               ;
-; Vector input source                                                                        ; H:/Pipeline_Processor/simulation/deletelater.vwf ;               ;
-; Add pins automatically to simulation output waveforms                                      ; On                                               ; On            ;
-; Check outputs                                                                              ; Off                                              ; Off           ;
-; Report simulation coverage                                                                 ; On                                               ; On            ;
-; Display complete 1/0 value coverage report                                                 ; On                                               ; On            ;
-; Display missing 1-value coverage report                                                    ; On                                               ; On            ;
-; Display missing 0-value coverage report                                                    ; On                                               ; On            ;
-; Detect setup and hold time violations                                                      ; Off                                              ; Off           ;
-; Detect glitches                                                                            ; Off                                              ; Off           ;
-; Disable timing delays in Timing Simulation                                                 ; Off                                              ; Off           ;
-; Generate Signal Activity File                                                              ; Off                                              ; Off           ;
-; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                              ; Off           ;
-; Group bus channels in simulation results                                                   ; Off                                              ; Off           ;
-; Preserve fewer signal transitions to reduce memory requirements                            ; On                                               ; On            ;
-; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                       ; INPUT_EDGE    ;
-; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                              ; Off           ;
-; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                              ;               ;
-; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                             ; Auto          ;
-; Interconnect Delay Model Type                                                              ; Transport                                        ; Transport     ;
-; Cell Delay Model Type                                                                      ; Transport                                        ; Transport     ;
-+--------------------------------------------------------------------------------------------+--------------------------------------------------+---------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                                                                   ;
++--------------------------------------------------------------------------------------------+---------------------------------------------------------+---------------+
+; Option                                                                                     ; Setting                                                 ; Default Value ;
++--------------------------------------------------------------------------------------------+---------------------------------------------------------+---------------+
+; Simulation mode                                                                            ; Functional                                              ; Timing        ;
+; Start time                                                                                 ; 0 ns                                                    ; 0 ns          ;
+; Simulation results format                                                                  ; VWF                                                     ;               ;
+; Vector input source                                                                        ; H:/Pipeline_Processor/simulation/IFID_Pipe_Waveform.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                                                      ; On            ;
+; Check outputs                                                                              ; Off                                                     ; Off           ;
+; Report simulation coverage                                                                 ; On                                                      ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                                                      ; On            ;
+; Display missing 1-value coverage report                                                    ; On                                                      ; On            ;
+; Display missing 0-value coverage report                                                    ; On                                                      ; On            ;
+; Detect setup and hold time violations                                                      ; Off                                                     ; Off           ;
+; Detect glitches                                                                            ; Off                                                     ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                                                     ; Off           ;
+; Generate Signal Activity File                                                              ; Off                                                     ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                                     ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                                                     ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                                                      ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                              ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                                     ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                                     ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                                    ; Auto          ;
+; Interconnect Delay Model Type                                                              ; Transport                                               ; Transport     ;
+; Cell Delay Model Type                                                                      ; Transport                                               ; Transport     ;
++--------------------------------------------------------------------------------------------+---------------------------------------------------------+---------------+
 
 
 +----------------------+
@@ -96,269 +96,147 @@ Please use Quartus II 64-Bit to view the waveform report data.
 +-----------------------------------------------------+--------------+
 ; Type                                                ; Value        ;
 +-----------------------------------------------------+--------------+
-; Total coverage as a percentage                      ;      14.62 % ;
-; Total nodes checked                                 ; 130          ;
-; Total output ports checked                          ; 130          ;
-; Total output ports with complete 1/0-value coverage ; 19           ;
-; Total output ports with no 1/0-value coverage       ; 98           ;
-; Total output ports with no 1-value coverage         ; 100          ;
-; Total output ports with no 0-value coverage         ; 109          ;
+; Total coverage as a percentage                      ;      88.12 % ;
+; Total nodes checked                                 ; 101          ;
+; Total output ports checked                          ; 101          ;
+; Total output ports with complete 1/0-value coverage ; 89           ;
+; Total output ports with no 1/0-value coverage       ; 5            ;
+; Total output ports with no 1-value coverage         ; 12           ;
+; Total output ports with no 0-value coverage         ; 5            ;
 +-----------------------------------------------------+--------------+
 
 
 The following table displays output ports that toggle between 1 and 0 during simulation.
-+--------------------------------------------------------------------------------------------------+
-; Complete 1/0-Value Coverage                                                                      ;
-+---------------------------------------+---------------------------------------+------------------+
-; Node Name                             ; Output Port Name                      ; Output Port Type ;
-+---------------------------------------+---------------------------------------+------------------+
-; |mux4to1_8bit|i_sel[0]                ; |mux4to1_8bit|i_sel[0]                ; out              ;
-; |mux4to1_8bit|o_y[0]                  ; |mux4to1_8bit|o_y[0]                  ; pin_out          ;
-; |mux4to1_8bit|o_y[1]                  ; |mux4to1_8bit|o_y[1]                  ; pin_out          ;
-; |mux4to1_8bit|o_y[2]                  ; |mux4to1_8bit|o_y[2]                  ; pin_out          ;
-; |mux4to1_8bit|o_y[3]                  ; |mux4to1_8bit|o_y[3]                  ; pin_out          ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y   ; out0             ;
-+---------------------------------------+---------------------------------------+------------------+
++----------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                            ;
++----------------------------------+----------------------------------+------------------+
+; Node Name                        ; Output Port Name                 ; Output Port Type ;
++----------------------------------+----------------------------------+------------------+
+; |IFID_Pipe|comb~0                ; |IFID_Pipe|comb~0                ; out0             ;
+; |IFID_Pipe|i_stall               ; |IFID_Pipe|i_stall               ; out              ;
+; |IFID_Pipe|i_clk                 ; |IFID_Pipe|i_clk                 ; out              ;
+; |IFID_Pipe|Instruction[0]        ; |IFID_Pipe|Instruction[0]        ; out              ;
+; |IFID_Pipe|Instruction[1]        ; |IFID_Pipe|Instruction[1]        ; out              ;
+; |IFID_Pipe|Instruction[2]        ; |IFID_Pipe|Instruction[2]        ; out              ;
+; |IFID_Pipe|Instruction[3]        ; |IFID_Pipe|Instruction[3]        ; out              ;
+; |IFID_Pipe|Instruction[4]        ; |IFID_Pipe|Instruction[4]        ; out              ;
+; |IFID_Pipe|Instruction[5]        ; |IFID_Pipe|Instruction[5]        ; out              ;
+; |IFID_Pipe|Instruction[6]        ; |IFID_Pipe|Instruction[6]        ; out              ;
+; |IFID_Pipe|Instruction[7]        ; |IFID_Pipe|Instruction[7]        ; out              ;
+; |IFID_Pipe|Instruction[9]        ; |IFID_Pipe|Instruction[9]        ; out              ;
+; |IFID_Pipe|Instruction[10]       ; |IFID_Pipe|Instruction[10]       ; out              ;
+; |IFID_Pipe|Instruction[11]       ; |IFID_Pipe|Instruction[11]       ; out              ;
+; |IFID_Pipe|Instruction[12]       ; |IFID_Pipe|Instruction[12]       ; out              ;
+; |IFID_Pipe|Instruction[13]       ; |IFID_Pipe|Instruction[13]       ; out              ;
+; |IFID_Pipe|Instruction[14]       ; |IFID_Pipe|Instruction[14]       ; out              ;
+; |IFID_Pipe|Instruction[15]       ; |IFID_Pipe|Instruction[15]       ; out              ;
+; |IFID_Pipe|Instruction[16]       ; |IFID_Pipe|Instruction[16]       ; out              ;
+; |IFID_Pipe|Instruction[17]       ; |IFID_Pipe|Instruction[17]       ; out              ;
+; |IFID_Pipe|Instruction[18]       ; |IFID_Pipe|Instruction[18]       ; out              ;
+; |IFID_Pipe|Instruction[19]       ; |IFID_Pipe|Instruction[19]       ; out              ;
+; |IFID_Pipe|Instruction[20]       ; |IFID_Pipe|Instruction[20]       ; out              ;
+; |IFID_Pipe|Instruction[21]       ; |IFID_Pipe|Instruction[21]       ; out              ;
+; |IFID_Pipe|Instruction[26]       ; |IFID_Pipe|Instruction[26]       ; out              ;
+; |IFID_Pipe|Instruction[28]       ; |IFID_Pipe|Instruction[28]       ; out              ;
+; |IFID_Pipe|Instruction[30]       ; |IFID_Pipe|Instruction[30]       ; out              ;
+; |IFID_Pipe|o_Instruction[0]      ; |IFID_Pipe|o_Instruction[0]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[1]      ; |IFID_Pipe|o_Instruction[1]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[2]      ; |IFID_Pipe|o_Instruction[2]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[3]      ; |IFID_Pipe|o_Instruction[3]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[4]      ; |IFID_Pipe|o_Instruction[4]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[5]      ; |IFID_Pipe|o_Instruction[5]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[6]      ; |IFID_Pipe|o_Instruction[6]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[7]      ; |IFID_Pipe|o_Instruction[7]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[9]      ; |IFID_Pipe|o_Instruction[9]      ; pin_out          ;
+; |IFID_Pipe|o_Instruction[10]     ; |IFID_Pipe|o_Instruction[10]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[11]     ; |IFID_Pipe|o_Instruction[11]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[12]     ; |IFID_Pipe|o_Instruction[12]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[13]     ; |IFID_Pipe|o_Instruction[13]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[14]     ; |IFID_Pipe|o_Instruction[14]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[15]     ; |IFID_Pipe|o_Instruction[15]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[16]     ; |IFID_Pipe|o_Instruction[16]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[17]     ; |IFID_Pipe|o_Instruction[17]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[18]     ; |IFID_Pipe|o_Instruction[18]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[19]     ; |IFID_Pipe|o_Instruction[19]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[20]     ; |IFID_Pipe|o_Instruction[20]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[21]     ; |IFID_Pipe|o_Instruction[21]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[22]     ; |IFID_Pipe|o_Instruction[22]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[23]     ; |IFID_Pipe|o_Instruction[23]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[24]     ; |IFID_Pipe|o_Instruction[24]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[25]     ; |IFID_Pipe|o_Instruction[25]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[26]     ; |IFID_Pipe|o_Instruction[26]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[27]     ; |IFID_Pipe|o_Instruction[27]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[28]     ; |IFID_Pipe|o_Instruction[28]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[29]     ; |IFID_Pipe|o_Instruction[29]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[30]     ; |IFID_Pipe|o_Instruction[30]     ; pin_out          ;
+; |IFID_Pipe|o_Instruction[31]     ; |IFID_Pipe|o_Instruction[31]     ; pin_out          ;
+; |IFID_Pipe|enARdFF_2:dFF31|int_q ; |IFID_Pipe|enARdFF_2:dFF31|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF30|int_q ; |IFID_Pipe|enARdFF_2:dFF30|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF29|int_q ; |IFID_Pipe|enARdFF_2:dFF29|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF28|int_q ; |IFID_Pipe|enARdFF_2:dFF28|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF27|int_q ; |IFID_Pipe|enARdFF_2:dFF27|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF26|int_q ; |IFID_Pipe|enARdFF_2:dFF26|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF25|int_q ; |IFID_Pipe|enARdFF_2:dFF25|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF24|int_q ; |IFID_Pipe|enARdFF_2:dFF24|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF23|int_q ; |IFID_Pipe|enARdFF_2:dFF23|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF22|int_q ; |IFID_Pipe|enARdFF_2:dFF22|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF21|int_q ; |IFID_Pipe|enARdFF_2:dFF21|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF20|int_q ; |IFID_Pipe|enARdFF_2:dFF20|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF19|int_q ; |IFID_Pipe|enARdFF_2:dFF19|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF18|int_q ; |IFID_Pipe|enARdFF_2:dFF18|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF17|int_q ; |IFID_Pipe|enARdFF_2:dFF17|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF16|int_q ; |IFID_Pipe|enARdFF_2:dFF16|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF15|int_q ; |IFID_Pipe|enARdFF_2:dFF15|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF14|int_q ; |IFID_Pipe|enARdFF_2:dFF14|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF13|int_q ; |IFID_Pipe|enARdFF_2:dFF13|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF12|int_q ; |IFID_Pipe|enARdFF_2:dFF12|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF11|int_q ; |IFID_Pipe|enARdFF_2:dFF11|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF10|int_q ; |IFID_Pipe|enARdFF_2:dFF10|int_q ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF9|int_q  ; |IFID_Pipe|enARdFF_2:dFF9|int_q  ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF7|int_q  ; |IFID_Pipe|enARdFF_2:dFF7|int_q  ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF6|int_q  ; |IFID_Pipe|enARdFF_2:dFF6|int_q  ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF5|int_q  ; |IFID_Pipe|enARdFF_2:dFF5|int_q  ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF4|int_q  ; |IFID_Pipe|enARdFF_2:dFF4|int_q  ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF3|int_q  ; |IFID_Pipe|enARdFF_2:dFF3|int_q  ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF2|int_q  ; |IFID_Pipe|enARdFF_2:dFF2|int_q  ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF1|int_q  ; |IFID_Pipe|enARdFF_2:dFF1|int_q  ; regout           ;
+; |IFID_Pipe|enARdFF_2:dFF0|int_q  ; |IFID_Pipe|enARdFF_2:dFF0|int_q  ; regout           ;
++----------------------------------+----------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 1 during simulation.
-+--------------------------------------------------------------------------------------------------+
-; Missing 1-Value Coverage                                                                         ;
-+---------------------------------------+---------------------------------------+------------------+
-; Node Name                             ; Output Port Name                      ; Output Port Type ;
-+---------------------------------------+---------------------------------------+------------------+
-; |mux4to1_8bit|i_0[0]                  ; |mux4to1_8bit|i_0[0]                  ; out              ;
-; |mux4to1_8bit|i_0[1]                  ; |mux4to1_8bit|i_0[1]                  ; out              ;
-; |mux4to1_8bit|i_0[2]                  ; |mux4to1_8bit|i_0[2]                  ; out              ;
-; |mux4to1_8bit|i_0[3]                  ; |mux4to1_8bit|i_0[3]                  ; out              ;
-; |mux4to1_8bit|i_0[4]                  ; |mux4to1_8bit|i_0[4]                  ; out              ;
-; |mux4to1_8bit|i_0[5]                  ; |mux4to1_8bit|i_0[5]                  ; out              ;
-; |mux4to1_8bit|i_0[6]                  ; |mux4to1_8bit|i_0[6]                  ; out              ;
-; |mux4to1_8bit|i_0[7]                  ; |mux4to1_8bit|i_0[7]                  ; out              ;
-; |mux4to1_8bit|i_1[0]                  ; |mux4to1_8bit|i_1[0]                  ; out              ;
-; |mux4to1_8bit|i_1[1]                  ; |mux4to1_8bit|i_1[1]                  ; out              ;
-; |mux4to1_8bit|i_1[2]                  ; |mux4to1_8bit|i_1[2]                  ; out              ;
-; |mux4to1_8bit|i_1[3]                  ; |mux4to1_8bit|i_1[3]                  ; out              ;
-; |mux4to1_8bit|i_1[4]                  ; |mux4to1_8bit|i_1[4]                  ; out              ;
-; |mux4to1_8bit|i_1[5]                  ; |mux4to1_8bit|i_1[5]                  ; out              ;
-; |mux4to1_8bit|i_1[6]                  ; |mux4to1_8bit|i_1[6]                  ; out              ;
-; |mux4to1_8bit|i_1[7]                  ; |mux4to1_8bit|i_1[7]                  ; out              ;
-; |mux4to1_8bit|i_2[0]                  ; |mux4to1_8bit|i_2[0]                  ; out              ;
-; |mux4to1_8bit|i_2[1]                  ; |mux4to1_8bit|i_2[1]                  ; out              ;
-; |mux4to1_8bit|i_2[2]                  ; |mux4to1_8bit|i_2[2]                  ; out              ;
-; |mux4to1_8bit|i_2[3]                  ; |mux4to1_8bit|i_2[3]                  ; out              ;
-; |mux4to1_8bit|i_2[4]                  ; |mux4to1_8bit|i_2[4]                  ; out              ;
-; |mux4to1_8bit|i_2[5]                  ; |mux4to1_8bit|i_2[5]                  ; out              ;
-; |mux4to1_8bit|i_2[6]                  ; |mux4to1_8bit|i_2[6]                  ; out              ;
-; |mux4to1_8bit|i_2[7]                  ; |mux4to1_8bit|i_2[7]                  ; out              ;
-; |mux4to1_8bit|i_3[0]                  ; |mux4to1_8bit|i_3[0]                  ; out              ;
-; |mux4to1_8bit|i_3[1]                  ; |mux4to1_8bit|i_3[1]                  ; out              ;
-; |mux4to1_8bit|i_3[2]                  ; |mux4to1_8bit|i_3[2]                  ; out              ;
-; |mux4to1_8bit|i_3[3]                  ; |mux4to1_8bit|i_3[3]                  ; out              ;
-; |mux4to1_8bit|i_3[4]                  ; |mux4to1_8bit|i_3[4]                  ; out              ;
-; |mux4to1_8bit|i_3[5]                  ; |mux4to1_8bit|i_3[5]                  ; out              ;
-; |mux4to1_8bit|i_3[6]                  ; |mux4to1_8bit|i_3[6]                  ; out              ;
-; |mux4to1_8bit|i_3[7]                  ; |mux4to1_8bit|i_3[7]                  ; out              ;
-; |mux4to1_8bit|o_y[6]                  ; |mux4to1_8bit|o_y[6]                  ; pin_out          ;
-; |mux4to1_8bit|o_y[7]                  ; |mux4to1_8bit|o_y[7]                  ; pin_out          ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~9 ; out0             ;
-+---------------------------------------+---------------------------------------+------------------+
++--------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                             ;
++---------------------------------+---------------------------------+------------------+
+; Node Name                       ; Output Port Name                ; Output Port Type ;
++---------------------------------+---------------------------------+------------------+
+; |IFID_Pipe|i_Flush              ; |IFID_Pipe|i_Flush              ; out              ;
+; |IFID_Pipe|i_enable             ; |IFID_Pipe|i_enable             ; out              ;
+; |IFID_Pipe|Instruction[8]       ; |IFID_Pipe|Instruction[8]       ; out              ;
+; |IFID_Pipe|Instruction[22]      ; |IFID_Pipe|Instruction[22]      ; out              ;
+; |IFID_Pipe|Instruction[23]      ; |IFID_Pipe|Instruction[23]      ; out              ;
+; |IFID_Pipe|Instruction[24]      ; |IFID_Pipe|Instruction[24]      ; out              ;
+; |IFID_Pipe|Instruction[25]      ; |IFID_Pipe|Instruction[25]      ; out              ;
+; |IFID_Pipe|Instruction[27]      ; |IFID_Pipe|Instruction[27]      ; out              ;
+; |IFID_Pipe|Instruction[29]      ; |IFID_Pipe|Instruction[29]      ; out              ;
+; |IFID_Pipe|Instruction[31]      ; |IFID_Pipe|Instruction[31]      ; out              ;
+; |IFID_Pipe|o_Instruction[8]     ; |IFID_Pipe|o_Instruction[8]     ; pin_out          ;
+; |IFID_Pipe|enARdFF_2:dFF8|int_q ; |IFID_Pipe|enARdFF_2:dFF8|int_q ; regout           ;
++---------------------------------+---------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 0 during simulation.
-+--------------------------------------------------------------------------------------------------+
-; Missing 0-Value Coverage                                                                         ;
-+---------------------------------------+---------------------------------------+------------------+
-; Node Name                             ; Output Port Name                      ; Output Port Type ;
-+---------------------------------------+---------------------------------------+------------------+
-; |mux4to1_8bit|i_0[0]                  ; |mux4to1_8bit|i_0[0]                  ; out              ;
-; |mux4to1_8bit|i_0[1]                  ; |mux4to1_8bit|i_0[1]                  ; out              ;
-; |mux4to1_8bit|i_0[2]                  ; |mux4to1_8bit|i_0[2]                  ; out              ;
-; |mux4to1_8bit|i_0[3]                  ; |mux4to1_8bit|i_0[3]                  ; out              ;
-; |mux4to1_8bit|i_0[4]                  ; |mux4to1_8bit|i_0[4]                  ; out              ;
-; |mux4to1_8bit|i_0[5]                  ; |mux4to1_8bit|i_0[5]                  ; out              ;
-; |mux4to1_8bit|i_0[6]                  ; |mux4to1_8bit|i_0[6]                  ; out              ;
-; |mux4to1_8bit|i_0[7]                  ; |mux4to1_8bit|i_0[7]                  ; out              ;
-; |mux4to1_8bit|i_1[0]                  ; |mux4to1_8bit|i_1[0]                  ; out              ;
-; |mux4to1_8bit|i_1[1]                  ; |mux4to1_8bit|i_1[1]                  ; out              ;
-; |mux4to1_8bit|i_1[2]                  ; |mux4to1_8bit|i_1[2]                  ; out              ;
-; |mux4to1_8bit|i_1[3]                  ; |mux4to1_8bit|i_1[3]                  ; out              ;
-; |mux4to1_8bit|i_1[4]                  ; |mux4to1_8bit|i_1[4]                  ; out              ;
-; |mux4to1_8bit|i_1[5]                  ; |mux4to1_8bit|i_1[5]                  ; out              ;
-; |mux4to1_8bit|i_1[6]                  ; |mux4to1_8bit|i_1[6]                  ; out              ;
-; |mux4to1_8bit|i_1[7]                  ; |mux4to1_8bit|i_1[7]                  ; out              ;
-; |mux4to1_8bit|i_2[0]                  ; |mux4to1_8bit|i_2[0]                  ; out              ;
-; |mux4to1_8bit|i_2[1]                  ; |mux4to1_8bit|i_2[1]                  ; out              ;
-; |mux4to1_8bit|i_2[2]                  ; |mux4to1_8bit|i_2[2]                  ; out              ;
-; |mux4to1_8bit|i_2[3]                  ; |mux4to1_8bit|i_2[3]                  ; out              ;
-; |mux4to1_8bit|i_2[4]                  ; |mux4to1_8bit|i_2[4]                  ; out              ;
-; |mux4to1_8bit|i_2[5]                  ; |mux4to1_8bit|i_2[5]                  ; out              ;
-; |mux4to1_8bit|i_2[6]                  ; |mux4to1_8bit|i_2[6]                  ; out              ;
-; |mux4to1_8bit|i_2[7]                  ; |mux4to1_8bit|i_2[7]                  ; out              ;
-; |mux4to1_8bit|i_3[0]                  ; |mux4to1_8bit|i_3[0]                  ; out              ;
-; |mux4to1_8bit|i_3[1]                  ; |mux4to1_8bit|i_3[1]                  ; out              ;
-; |mux4to1_8bit|i_3[2]                  ; |mux4to1_8bit|i_3[2]                  ; out              ;
-; |mux4to1_8bit|i_3[3]                  ; |mux4to1_8bit|i_3[3]                  ; out              ;
-; |mux4to1_8bit|i_3[4]                  ; |mux4to1_8bit|i_3[4]                  ; out              ;
-; |mux4to1_8bit|i_3[5]                  ; |mux4to1_8bit|i_3[5]                  ; out              ;
-; |mux4to1_8bit|i_3[6]                  ; |mux4to1_8bit|i_3[6]                  ; out              ;
-; |mux4to1_8bit|i_3[7]                  ; |mux4to1_8bit|i_3[7]                  ; out              ;
-; |mux4to1_8bit|i_sel[1]                ; |mux4to1_8bit|i_sel[1]                ; out              ;
-; |mux4to1_8bit|o_y[4]                  ; |mux4to1_8bit|o_y[4]                  ; pin_out          ;
-; |mux4to1_8bit|o_y[5]                  ; |mux4to1_8bit|o_y[5]                  ; pin_out          ;
-; |mux4to1_8bit|o_y[6]                  ; |mux4to1_8bit|o_y[6]                  ; pin_out          ;
-; |mux4to1_8bit|o_y[7]                  ; |mux4to1_8bit|o_y[7]                  ; pin_out          ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux8|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux8|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux7|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux7|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux6|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux6|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~7 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~7 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux5|o_y   ; |mux4to1_8bit|mux4to1_1bit:mux5|o_y   ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux4|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~2 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~2 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~3 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~3 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~4 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~4 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux3|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux2|o_y~9 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~0 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~0 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~1 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~1 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~5 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~5 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~6 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~6 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~8 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~8 ; out0             ;
-; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~9 ; |mux4to1_8bit|mux4to1_1bit:mux1|o_y~9 ; out0             ;
-+---------------------------------------+---------------------------------------+------------------+
++--------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                             ;
++---------------------------------+---------------------------------+------------------+
+; Node Name                       ; Output Port Name                ; Output Port Type ;
++---------------------------------+---------------------------------+------------------+
+; |IFID_Pipe|i_Flush              ; |IFID_Pipe|i_Flush              ; out              ;
+; |IFID_Pipe|i_enable             ; |IFID_Pipe|i_enable             ; out              ;
+; |IFID_Pipe|Instruction[8]       ; |IFID_Pipe|Instruction[8]       ; out              ;
+; |IFID_Pipe|o_Instruction[8]     ; |IFID_Pipe|o_Instruction[8]     ; pin_out          ;
+; |IFID_Pipe|enARdFF_2:dFF8|int_q ; |IFID_Pipe|enARdFF_2:dFF8|int_q ; regout           ;
++---------------------------------+---------------------------------+------------------+
 
 
 +---------------------+
@@ -374,19 +252,19 @@ The following table displays output ports that do not toggle to 0 during simulat
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Simulator
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Mar 30 12:06:56 2026
+    Info: Processing started: Tue Mar 31 16:45:01 2026
 Info: Command: quartus_sim --simulation_results_format=VWF PipelinedProcessor -c PipelinedProcessor_qsim
-Info (324025): Using vector source file "H:/Pipeline_Processor/simulation/deletelater.vwf"
+Info (324025): Using vector source file "H:/Pipeline_Processor/simulation/IFID_Pipe_Waveform.vwf"
 Info (310003): Option to preserve fewer signal transitions to reduce memory requirements is enabled
     Info (310004): Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
 Info (310002): Simulation partitioned into 1 sub-simulations
-Info (328053): Simulation coverage is      14.62 %
-Info (328052): Number of transitions in simulation is 52
+Info (328053): Simulation coverage is      88.12 %
+Info (328052): Number of transitions in simulation is 225
 Info (324045): Vector file PipelinedProcessor_qsim.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
 Info: Quartus II 64-Bit Simulator was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4470 megabytes
-    Info: Processing ended: Mon Mar 30 12:06:57 2026
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Tue Mar 31 16:45:03 2026
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

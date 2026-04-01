@@ -10,5 +10,5 @@ end entity;
 architecture rtl of IDEX_Pipe is
 
 begin
-
+	
 end rtl;
