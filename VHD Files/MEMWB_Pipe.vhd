@@ -3,10 +3,11 @@ use ieee.std_logic_1164.all;
 
 entity MEMWB_Pipe is
 	port(i_MemtoReg, i_RegWrite, GReset, Gclock : in std_logic;
-		o_MemtoReg, o_RegWrite : out std_logic;
-		i_pipe: in std_logic_vector(25 downto 0);
-		o_pipe: out std_logic_vector(25 downto 0)
-		);
+		i_RTRD : in std_logic_vector(4 downto 0);
+		i_dataMem, i_ALUresult : in std_logic_vector(7 downto 0);
+		MEMWB_RTRD : out std_logic_vector(4 downto 0);
+		MEMWB_dataMemOut, MEMWB_ALUresult : out std_logic_vector(7 downto 0);
+		MEMWB_MemtoReg, MEMWB_RegWrite : out std_logic);
 end entity;
 
 architecture rtl of MEMWB_Pipe is
@@ -21,240 +22,188 @@ PORT(
 end component;
 
 begin
+	rtrd4 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_RTRD(4),
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_RTRD(4),
+			o_qBar => open);
 
-MemtoReg: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(25), 
-			i_enable =>'1',
+	rtrd3 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_RTRD(3),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(25)
-			);
+			o_q => MEMWB_RTRD(3),
+			o_qBar => open);
 
+	rtrd2 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_RTRD(2),
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_RTRD(2),
+			o_qBar => open);
 
-RegWrite: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(24), 
-			i_enable =>'1',
+	rtrd1 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_RTRD(1),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(24)
-			);
+			o_q => MEMWB_RTRD(1),
+			o_qBar => open);
 
+	rtrd0 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_RTRD(0),
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_RTRD(0),
+			o_qBar => open);
 
-Mem7: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(23), 
-			i_enable =>'1',
+	aluresult7 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_ALUresult(7),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(23)
-			);
+			o_q => MEMWB_ALUresult(7),
+			o_qBar => open);
 
-			
-			
-Mem6: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(22), 
-			i_enable =>'1',
+	aluresult6 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_ALUresult(6),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(22)
-			);
-			
-			
-Mem5: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(21), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(21)
-			);
-			
-			
-			
-Mem4: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(20), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(20)
-			);
-			
-			
-Mem3: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(19), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(19)
-			);
-			
-			
-Mem2: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(18), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(18)
-			);
-			
-			
-			
-Mem1: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(17), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(17)
-			);
+			o_q => MEMWB_ALUresult(6),
+			o_qBar => open);
 
-			
-Mem0: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(16), 
-			i_enable =>'1',
+	aluresult5 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_ALUresult(5),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(16)
-			);
-			
+			o_q => MEMWB_ALUresult(5),
+			o_qBar => open);
 
-R7: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(15), 
-			i_enable =>'1',
+	aluresult4 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_ALUresult(4),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(15)
-			);
-			
-R6: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(14), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(14)
-			);
-			
-			
-R5: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(13), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(13)
-			);
-			
-R4: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(12), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(12)
-			);
-			
-			
-R3: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(11), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(11)
-			);
-			
-			
-R2: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(10), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(10)
-			);
-			
-			
-R1: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(9), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(9)
-			);
-			
-			
-R0: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(8), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(8)
-			);
-			
-			
-RD7: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(7), 
-			i_enable =>'1',
-			i_clock => Gclock,
-			o_q => o_pipe(7)
-			);
+			o_q => MEMWB_ALUresult(4),
+			o_qBar => open);
 
-			
-RD6: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(6), 
-			i_enable =>'1',
+	aluresult3 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_ALUresult(3),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(6)
-			);
-			
-RD5: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(5), 
-			i_enable =>'1',
+			o_q => MEMWB_ALUresult(3),
+			o_qBar => open);
+
+	aluresult2 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_ALUresult(2),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(5)
-			);
-			
-			
-RD4: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(4), 
-			i_enable =>'1',
+			o_q => MEMWB_ALUresult(2),
+			o_qBar => open);
+
+	aluresult1 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_ALUresult(1),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(4)
-			);
-			
-			
-RD3: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(3), 
-			i_enable =>'1',
+			o_q => MEMWB_ALUresult(1),
+			o_qBar => open);
+
+	aluresult0 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_ALUresult(0),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(3)
-			);
-			
-			
-RD2: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(2), 
-			i_enable =>'1',
+			o_q => MEMWB_ALUresult(0),
+			o_qBar => open);
+
+	DataMem7 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_dataMem(7),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(2)
-			);
-			
-			
-RD1: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(1), 
-			i_enable =>'1',
+			o_q => MEMWB_dataMemOut(7),
+			o_qBar => open);
+
+	DataMem6 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_dataMem(6),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(1)
-			);
-			
-			
-RD0: enARdFF_2
-port map(i_resetBar => GReset,
-			i_d =>i_pipe(0), 
-			i_enable =>'1',
+			o_q => MEMWB_dataMemOut(6),
+			o_qBar => open);
+
+	DataMem5 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_dataMem(5),
+			i_enable => '1',
 			i_clock => Gclock,
-			o_q => o_pipe(0)
-			);
+			o_q => MEMWB_dataMemOut(5),
+			o_qBar => open);
+
+	DataMem4 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_dataMem(4),
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_dataMemOut(4),
+			o_qBar => open);
+
+	DataMem3 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_dataMem(3),
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_dataMemOut(3),
+			o_qBar => open);
+
+	DataMem2 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_dataMem(2),
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_dataMemOut(2),
+			o_qBar => open);
+
+	DataMem1 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_dataMem(1),
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_dataMemOut(1),
+			o_qBar => open);
+
+	DataMem0 : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_dataMem(0),
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_dataMemOut(0),
+			o_qBar => open);
+
+	memtoreg : enARdFF_2
+		port map(i_resetBar => GReset,
+			i_d => i_MemtoReg,
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_MemtoReg,
+			o_qBar => open);
 			
-			
+	regwrite : enARdFF_2
+		port map(i_resetBar => Greset,
+			i_d => i_RegWrite,
+			i_enable => '1',
+			i_clock => Gclock,
+			o_q => MEMWB_RegWrite,
+			o_qBar => open);
 
 end rtl;

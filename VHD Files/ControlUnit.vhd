@@ -43,3 +43,22 @@ begin
 	controlOut(9) <= IF_Flush;
 	controlOut(10) <= Jump;
 end rtl; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

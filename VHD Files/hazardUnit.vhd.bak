@@ -7,7 +7,7 @@ entity hazardUnit is
         IDEX_rt     : in std_logic_vector(4 downto 0);
         IFID_rs     : in std_logic_vector(4 downto 0);
         IFID_rt     : in std_logic_vector(4 downto 0);
-        stall, PCWrite       : out std_logic
+        stall       : out std_logic
     );
 end hazardUnit;
 
@@ -22,5 +22,5 @@ architecture structural of hazardUnit is
                     (IDEX_rt(2) XNOR IFID_rt(2)) AND (IDEX_rt(1) XNOR IFID_rt(1)) AND (IDEX_rt(0) XNOR IFID_rt(0));         
 
     stall <= memRead AND (rt_equals_rs or rt_equals_rt);
-	 PCWrite <= not(memRead AND (rt_equals_rs or rt_equals_rt));
+
 end structural;

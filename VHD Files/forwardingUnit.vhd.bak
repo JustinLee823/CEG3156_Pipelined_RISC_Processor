@@ -12,9 +12,9 @@ entity forwardingUnit is
         MEMWB_RegisterRd    : in std_logic_vector(4 downto 0);
 
         ForwardA    : out std_logic_vector(1 downto 0);
-        ForwardB    : out std_logic_vector(1 downto 0)
+        ForwardB    : out std_logic_vector(1 downto 0);
     );
-end entity;
+end forwardingUnit;
 
 architecture structural of forwardingUnit is
     signal EXMEM_RegisterRd_equals_rs   : std_logic;
@@ -29,7 +29,7 @@ architecture structural of forwardingUnit is
     signal type1, type2, type3, type4   : std_logic;
 
     begin
-    zero_register <= "00000";
+    zero_register = '00000';
 
     EXMEM_RegisterRd_equals_rs <= (EXMEM_RegisterRd(4) XNOR IDEX_RegisterRs(4)) AND (EXMEM_RegisterRd(3) XNOR IDEX_RegisterRs(3)) AND
                                   (EXMEM_RegisterRd(2) XNOR IDEX_RegisterRs(2)) AND (EXMEM_RegisterRd(1) XNOR IDEX_RegisterRs(1)) AND 
